@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Plus, Trash2, AlertCircle } from 'lucide-react';
+import * as Icons from 'lucide-react';
 import IconPicker from '../services/IconPicker';
 import { useSectorIdExists } from '../../hooks/useSectors';
 import type { Sector, SectorFormData, SectorHighlight } from '../../types/sector.types';
@@ -379,10 +380,10 @@ const SectorModal: React.FC<SectorModalProps> = ({ sector, onClose, onSubmit, is
                 className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-left hover:border-pink-500 transition-colors flex items-center justify-between"
               >
                 <span className="flex items-center gap-3">
-                  {React.createElement(
-                    (require('lucide-react') as any)[formData.icon] || require('lucide-react').Briefcase,
-                    { size: 20, className: 'text-pink-400' }
-                  )}
+                  {(() => {
+                    const IconComponent = (Icons as any)[formData.icon] || Icons.Briefcase;
+                    return <IconComponent size={20} className="text-pink-400" />;
+                  })()}
                   <span className="text-white">{formData.icon}</span>
                 </span>
                 <span className="text-gray-400 text-sm">Cliquer pour changer</span>
