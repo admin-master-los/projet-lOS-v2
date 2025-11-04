@@ -32,6 +32,9 @@ import ServiceList from './admin/pages/services/ServiceList';
 import ServiceCreate from './admin/pages/services/ServiceCreate';
 import ServiceEdit from './admin/pages/services/ServiceEdit';
 
+// 🆕 Sectors CRUD
+import AdminSectors from './admin/pages/Sectors';
+
 function App() {
   return (
     <Router>
@@ -105,19 +108,8 @@ function App() {
                 <Route path=":id/edit" element={<ServiceEdit />} />
               </Route>
               
-              {/* 🆕 Services CRUD */}
-              <Route path="services">
-                <Route index element={<ServiceList />} />
-                <Route path="create" element={<ServiceCreate />} />
-                <Route path=":id/edit" element={<ServiceEdit />} />
-              </Route>
-
-              {/* 🆕 Services CRUD */}
-              <Route path="services">
-                <Route index element={<ServiceList />} />
-                <Route path="create" element={<ServiceCreate />} />
-                <Route path=":id/edit" element={<ServiceEdit />} />
-              </Route>
+              {/* 🆕 Sectors CRUD */}
+              <Route path="sectors" element={<AdminSectors />} />
               
               {/* Autres routes admin seront ajoutées dans les prochaines phases */}
             </Route>
